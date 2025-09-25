@@ -1,0 +1,175 @@
+.combo-box {
+  border: none;
+  background-position: calc(50%)
+}
+
+.combo-box-btn {
+  width: 100%;
+  justify-content: space-between;
+
+  &:hover {
+    color: #2d2d2d;
+  }
+}
+
+.combo-box-options {
+  position: absolute;
+  top: calc(100% + 8px);
+  padding: 4px 0px;
+  background-color: #ffffff;
+  border: 4px solid #e4e4e7;
+  border-radius: 8px;
+  z-index: 2;
+  overflow: auto;
+  right: 0;
+  max-height: 150px;
+
+  &:focus {
+    outline: auto;
+    outline-color: #1CADFF;
+    outline-style: dotted;
+  }
+  
+  li {
+    cursor: pointer;
+    padding: 4px 8px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    &:hover {
+      background-color: #0873FF;
+      color: #ffffff;
+
+      span {
+        color: #2d2d2d;
+      }
+
+      button {
+        color: #ffffff;
+      }
+    }
+    &.selected {
+      background-color: #0873FF;
+      color: #ffffff;
+
+      button {
+        color: #ffffff;
+
+        span {
+          color: #2d2d2d;
+        }
+      }
+    }
+  }
+}
+
+.reverse {
+  .combo-box-options {
+    top: auto;
+    bottom: calc(100% + 8px);
+  }
+}
+
+.combo-box-caret {
+  margin-left: 24px;
+}
+
+.tags-input-container {
+  position: relative;
+
+  &:has(.combo-box-action:hover) {
+    .input-search {
+      outline: auto;
+      outline-color: #1CADFF;
+      outline-style: dotted;
+    }
+  }
+
+    &:has(.combo-box-action:focus) {
+    .input-search {
+      outline: auto;
+      outline-color: #1CADFF;
+      outline-style: dotted;
+    }
+  }
+
+  .combo-box-action {
+    position: absolute;
+    right: 8px;
+    top: 50%;
+    transform: translateY(-50%);
+    border: none;
+    background: none;
+    cursor: pointer;
+    padding: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &:hover, &:focus {
+      outline: none;
+    }
+
+    svg {
+      width: 16px;
+      height: auto;
+      margin-right: 8px;
+      margin-left: 8px;
+    }
+  }
+}
+
+
+.tags-filter {
+  flex-direction: column;
+  align-items: start;
+  padding-top: 0px;
+  margin-bottom: 8px;
+
+  .label {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-right: 8px;
+    margin-bottom: 8px;
+    gap: 8px;
+
+    svg {
+      width: 16px;
+      height: auto;
+    }
+  } 
+}
+
+.tags-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 8px;
+
+  .btn {
+    padding: 4px 8px;
+    font-size: .71rem;
+
+    &:hover {
+      outline: auto;
+      outline-color: #1CADFF;
+      outline-style: dotted;
+    }
+  }
+
+  .icon-action {
+    margin-left: 16px;
+  }
+}
+
+.tags-input-container {
+  min-width: 200px;
+}
+
+@media only screen and (max-width: 720px) {
+  .combo-box-options {
+    width: 100%;
+  }
+}

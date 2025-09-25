@@ -1,0 +1,345 @@
+@use '../../imports';
+
+$brand-color: #0873FF;
+$brand-highlight: #C9E1FF;
+
+.todos-app {
+  position: relative;
+
+  .priority-color-high {
+    color: imports.$danger;
+
+    path {
+      fill: imports.$danger;
+    }
+  }
+
+  .priority-color-medium {
+    color: imports.$warning;
+
+    path {
+      fill: imports.$warning;
+    }
+  }
+
+  .priority-color-low {
+    color: imports.$success;
+
+    path {
+      fill: imports.$success;
+    }
+  }
+}
+
+h4, p, span, button {
+  font-size: .85rem;
+}
+
+.modal-container {
+  h4 {
+    font-size: 1rem;
+  }
+}
+
+.modal-actions {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  flex-direction: row;
+
+  .btn-default {
+    flex-grow: 1;
+  }
+}
+
+p {
+  font-weight: normal;
+}
+
+.logo {
+  width: 36px;
+  height: auto;
+}
+
+.visibility-hidden {
+  visibility: hidden;
+}
+
+.todos-nav {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 8px 24px;
+  border-bottom: 1px solid imports.$light-grey;
+  position: sticky;
+  top: 0;
+  background-color: imports.$white;
+  z-index:3;
+  justify-content: space-between;
+
+  .nav-main {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .nav-select {
+    margin-left: 16px;
+    justify-content: start;
+
+    .btn {
+      border: none;
+
+      &:hover {
+        outline: auto;
+        outline-color: imports.$link-hover-color;
+        outline-style: dotted;
+      }
+    }
+
+    svg {
+      width: 24px;
+      height: auto;
+      margin-left: 16px;
+    }
+
+    .select-options {
+      min-width: 150px;
+      right: auto;
+      left: 0;
+    }
+  }
+}
+
+.todos-section {
+  margin-bottom: 48px;
+}
+
+.btn-default {
+  &:hover {
+    border-color: $brand-highlight;
+    outline: auto;
+    outline-color: imports.$link-hover-color;
+    outline-style: dotted;
+  }
+
+  svg {
+    width: 24px;
+    height: auto;
+    margin-right: 8px;
+  }
+}
+
+.btn, .input, .tag {
+  border: 4px solid imports.$light-grey;
+  padding: 4px 8px;
+  background-color: imports.$white;
+  border-radius: 8px;
+  font-size: .85rem;
+  cursor: pointer;
+
+  &:hover {
+    color: imports.$font-color;
+  }
+}
+
+.btn-danger {
+  background-color: imports.$bg-grey;
+
+  &:hover {
+    color: imports.$white;
+    background-color: imports.$danger;
+    outline: auto;
+    outline-color: imports.$link-hover-color;
+    outline-style: dotted;
+    border-color: imports.$danger-highlight;
+
+    path {
+      fill: imports.$white;
+    }
+  }
+
+  svg {
+    width: 16px;
+    height: auto;
+    margin-right: 8px;
+  }
+}
+
+.btn-input {
+  position: absolute;
+  right: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+  border-radius: 4px;
+  padding: 4px;
+
+  &:hover, &:focus {
+    outline: auto;
+    outline-color: imports.$link-hover-color;
+    outline-style: dotted;
+  }
+}
+
+.tag {
+  cursor: default;
+  font-size: .71rem;
+  text-transform: lowercase;
+  border-width: 2px;
+  border: none;
+  background-color: imports.$bg-grey;
+  cursor: text;
+}
+
+.btn-primary {
+  background-color: $brand-color;
+  color: imports.$white;
+}
+
+.btn-link {
+  border: none;
+  padding: 0px;
+  background-color: transparent;
+  color: imports.$link-hover-color;
+  font-size: .85rem;
+  cursor: pointer;
+  justify-content: end;
+
+  &:hover {
+    color: imports.$link-hover-color;
+    text-decoration: underline;
+  }
+}
+
+.input {
+  cursor: text;
+  width: 100%;
+  font-size: .85rem;
+
+  &:hover, &:focus,&:focus-visible{
+    outline: auto;
+    outline-color: imports.$link-hover-color;
+    outline-style: dotted;
+  }
+}
+
+.select {
+  width: 100%;
+  min-width: 200px;
+
+  .label {
+    flex: 1 2;
+    justify-self: start;
+    text-align: left;
+  }
+}
+
+.todo-top {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding-top: 8px;
+
+  & > div:last-of-type {
+    gap: 8px;
+  }
+}
+
+.count-badge {
+  background-color: imports.$light-grey;
+  color: $brand-color;
+  border-radius: 8px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 16px;
+  font-size: .71rem;
+  pointer-events: none;
+}
+
+.btn-default {
+  background-color: $brand-color;
+  color: imports.$white;
+
+  .count-badge {
+    color: imports.$font-color;
+  }
+
+  &:hover {
+    color: imports.$white;
+  }
+
+  svg path {
+    fill: imports.$white;
+  }
+}
+
+.btn-tag {
+  border-width: 2px;
+}
+
+.reset-filters {
+  width: 100%;
+}
+
+.reset-all {
+  margin-bottom: 8px;
+}
+
+.search-container {
+  position: relative;
+
+  reset-filter {
+    float: right;
+    width: auto;
+  }
+}
+
+.advanced-filters, .tags-input-container {
+  width: 100%;
+}
+
+@media only screen and (max-width: 720px) {
+  .todos-app {
+
+    .select {
+      min-width: 175px;
+    }
+
+    .select .label {
+      margin-right: 12px;
+    }
+  }
+
+  .filter-section {
+    padding: 0px 12px;
+  }
+
+  .todos-nav {
+    padding: 8px 12px;
+  };
+
+  .todo-top {
+    display: flex;
+    flex-direction: column;
+    gap: 0px;
+    width: 100%;
+
+    .btn-link {
+      align-self: flex-end;
+    }
+
+    & > div:last-of-type {
+      row-gap: 0px;
+    }
+  }
+
+  .visibility-hidden {
+    display: none;
+  }
+
+  .todo-item-container{
+    margin: 8px 12px 24px 12px;
+  }
+}

@@ -1,0 +1,217 @@
+@use 'imports';
+
+* {
+  font-family: 'Outfit', sans-serif;
+  color: imports.$font-color;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-weight: 500;
+}
+
+// svgs
+svg path {
+  fill: imports.$font-color;
+}
+
+// links
+a {
+  text-decoration: underline;
+  color: imports.$font-color;
+  border: none;
+  outline: none;
+
+  &:hover {
+    color: imports.$link-hover-color;
+
+    svg {
+      pointer-events: none;
+    }
+
+    svg path {
+      fill: imports.$link-hover-color
+    }
+
+    b {
+      color: imports.$link-hover-color;
+    }
+  }
+}
+
+// buttons
+button {
+  outline: none;
+  background-color: transparent;
+  border: none;
+  padding: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+
+  span {
+    margin-left: 8px;
+    font-weight: 500;
+  }
+
+  svg {
+    pointer-events: none;
+  }
+}
+button, a {
+  &:focus {
+    outline: auto;
+    outline-color: imports.$link-hover-color;
+    outline-style: dotted;
+  }
+}
+
+// unordered lists
+ul { 
+  list-style: none; 
+  margin: 0; 
+  padding: 0; 
+}
+
+.bold {
+  font-weight: 500;
+}
+
+// slide menu
+body {
+  overflow-x:hidden;
+}
+
+// Variables 
+$transition: .5s;
+$side-menu-width: 212px;
+
+
+// Default state styles (menu is hidden)
+.projects-wrapper {
+  position: relative;
+  transition: $transition;
+}
+
+.side-menu {
+  overflow-y: auto;
+
+  // positions the menu on reveal
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: $side-menu-width;  
+  transform: translate3d(-100%, 0, 0); // hides menu
+  transition: $transition;
+
+  // styling
+  background-color: imports.$white;
+  border-right: 1px solid imports.$light-grey;
+
+  .item {
+    transition: $transition;
+  }
+}
+
+// Show state styles (menu is showing)
+.menu-active {  
+  .projects-wrapper {
+    // moves page to right
+    transform: translate3d($side-menu-width, 0, 0);
+  }
+  
+  .side-menu {
+    // moves menu to right, revealing it
+    transform: translate3d(0,0,0);
+  }  
+}
+
+.side-menu-other {
+  margin-top: 112px;
+}
+
+.side-menu {
+  padding: 16px 24px;
+}
+
+.side-menu-main {
+  margin-top: 56px;
+  margin-bottom: 56px;
+}
+
+.side-menu-main, .side-menu-other {
+  li {
+    margin-bottom: 16px;
+
+    &:last-of-type {
+      margin-bottom: 0px;
+    }
+  }
+}
+
+.close-button, .menu-button {
+  border-radius: 8px;
+}
+
+// nav bar
+.nav-bar {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 16px 24px;
+  border-bottom: 1px solid imports.$light-grey;
+
+  button:hover {
+    outline: auto;
+    outline-color: imports.$link-hover-color;
+    outline-style: dotted;
+  }
+}
+
+.nav-right-links {
+  display: flex;
+  align-items: center;
+
+  a {
+    margin-right: 24px;
+
+    &:last-of-type {
+      margin-right: 0px;
+    }
+  }
+}
+
+// icons
+.icon {
+  color: imports.$font-color;
+}
+
+.menu-icon, .x-icon {
+  width: 36px;
+  height: auto;
+}
+
+// media queries
+@media only screen and (max-width: 720px) {
+  .nav-bar {
+    padding: 8px 12px;
+  }
+  
+  .side-menu {
+    width: 100%;
+    z-index: 2;
+  }
+
+  .menu-button {
+    justify-content: left;
+    margin-bottom: 16px;
+    width: fit-content;
+  }
+
+  .nav-bar {
+    display: flex;
+    flex-direction: column;
+  }
+}

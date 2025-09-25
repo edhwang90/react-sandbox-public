@@ -1,0 +1,84 @@
+@use '../../imports';
+
+.project-card {
+  border: 4px solid imports.$font-color;
+  border-radius: 16px;
+
+  display: inline-block;
+  padding-left: 80px;
+  padding-right: 36px;
+  padding-top: 24px;
+  padding-bottom: 24px;
+
+  text-align: left;
+  max-width: 972px;
+  width: 100%;
+
+  overflow: hidden;
+  position: relative;
+
+  .highlight-color {
+    background-color: #e4e4e7;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 24px;
+    height: 100%;
+  }
+
+  a {
+    font-size: 2.25rem;
+    font-weight: 500;
+    text-decoration: none;
+    display: inline-block;
+    margin-bottom: 16px;
+  }
+
+  .tag {
+    background-color: #FDFF9D;
+    border: none;
+    border-radius: 8px;
+    display: inline-block;
+    margin-right: 8px;
+    margin-top: 8px;
+    padding: 4px 32px;
+    font-size: 1rem;
+    text-transform: none;
+
+    &:last-of-type {
+      margin-right: 0px;
+    }
+  }
+
+  .to-project-btn {
+    float: right;
+    margin-bottom: 0px;
+  }
+
+  .card-arrow {
+    width: 54px;
+    height: auto;
+  }
+
+  .row {
+    display: flex;
+    align-items: center;
+  }
+}
+
+@media only screen and (max-width: 720px) {
+  .project-card {
+    padding-left: 32px;
+    padding-right: 8px;
+    padding-top: 8px;
+    padding-bottom: 8px;
+
+    .row {
+      display: inline-block;
+    }
+
+    a {
+      font-size: 2rem;
+    }
+  }
+}

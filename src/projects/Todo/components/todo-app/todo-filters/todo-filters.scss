@@ -1,0 +1,172 @@
+@use '../../../../../imports';
+
+$brand-color: #0873FF;
+
+.filter-section, .base-filters, .priority-filters {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.filter-section {
+  padding: 0px 24px;
+  flex-direction: column;
+  align-items: start;
+  border-bottom: 1px solid imports.$light-grey;
+
+  .row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .row [class^="col"] {
+    margin: 0;
+  }
+
+  .combo-box-options, .select-options {
+    width: 100%;
+  } 
+}
+
+.status-filters {
+  display: flex;
+  flex-direction: row;
+  padding: 8px 0px;
+
+  svg {
+    width: 16px;
+    height: auto;
+    margin-right: 8px;
+  }
+}
+
+.base-filters {
+  margin-right: 24px;
+}
+
+
+.top-filters {
+  display: flex;
+  gap: .5rem;
+}
+
+.priority-label, .status-label {
+  pointer-events: none;
+  display: flex;
+  align-items: center;
+  width: 100%;
+
+  div:first-of-type {
+    display: flex;
+    align-items: center;
+
+    .select-icon{
+      width: 16px;
+      height: auto;
+      margin-right: 8px;
+    }
+  }
+
+  span {
+    font-weight: normal;
+    pointer-events: none;
+    margin-left: 0px;
+  }
+
+  span:first-of-type {
+    margin-left: 0px;
+  }
+
+  .count-badge {
+    margin-right: 8px;
+    font-weight: 500;
+  }
+}
+
+.filter-select-row {
+  .count {
+    float: right;
+    background-color: imports.$light-grey;
+    border-radius: 8px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 16px;
+    font-size: .71rem;
+    font-weight: 500;
+    pointer-events: none;
+  }
+}
+
+.priority-filter {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 8px 0px;
+
+  svg {
+    width: 16px;
+    height: auto;
+    margin-right: 8px;
+  }
+}
+
+.status-priority-filters {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  .top-filters {
+    flex: 1 100%;
+  }
+}
+
+@media only screen and (max-width: 720px) {
+  .filter-section {
+    padding: 0px 12px;
+  }
+
+  .status-filters, .priority-filter {
+    flex: 1;
+
+    .select {
+      width: 100%;
+    }
+  }
+
+  .top-filters {
+    justify-content: space-between;
+  }
+
+  .priority-filter {
+    margin: 0px 0px 8px 0px;
+    padding: 0px;
+  }
+
+  .status-priority-filters {
+    flex-direction: column;
+    align-items: start;
+    gap: 8px;
+
+    .top-filters {
+      width: 100%;
+    }
+  }
+
+  .filter-section {
+    .row {
+      display: block;
+    }
+
+    .row [class^=col] {
+      width: 100%;
+    }
+  }
+
+  .reset-filters {
+    margin-bottom: 8px;
+  }
+}

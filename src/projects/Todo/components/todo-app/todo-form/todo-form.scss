@@ -1,0 +1,56 @@
+@use '../../../../../_imports.scss';
+
+.todo-form {
+  margin-top: 16px;
+
+  .combo-box-options, .select-options {
+    width: 100%;
+  } 
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 16px;
+  gap: 8px;
+
+  .priority-filter {
+    padding: 0px;
+  }
+}
+
+.form-label {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+
+  span {
+    color: imports.$medium-grey;
+    font-size: .71rem;
+  }
+}
+
+.form-info, .form-error, .form-warning {
+  font-size: .71rem;
+  line-height: .71rem;
+}
+
+.form-info {
+  color: imports.$medium-grey;
+}
+
+.form-error {
+  color: imports.$danger;
+}
+
+.form-warning {
+  color: imports.$warning;
+}
+
+// @media only screen and (max-width: 720px) {
+//   .todo-form .reverse .combo-box-options {
+//     top: calc(100% + 8px);
+//     bottom: auto;
+//   }
+// }
+

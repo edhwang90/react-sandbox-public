@@ -1,0 +1,12 @@
+@use '../../../../../_imports.scss';
+
+.todo-list-empty-state {
+  text-align: center;
+  padding: 8px 24px;
+  
+  p {
+    font-weight: 500;
+    font-style: italic;
+    color: imports.$medium-grey;
+  }
+}
