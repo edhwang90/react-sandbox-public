@@ -112,12 +112,18 @@ $brand-color: #0873FF;
   }
 
   .meta-info {
-    column-gap: 8px;
+    flex-direction: column;
+    row-gap: 8px;
+    align-items: start;
 
-    svg {
-      width: 12px;
-      height: auto;
+    span {
+      font-size: .625rem;
     }
+    // svg {
+    //   width: 12px;
+    //   height: auto;
+    //   display: none;
+    // }
     
     div {
       column-gap: 4px;
