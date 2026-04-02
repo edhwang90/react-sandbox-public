@@ -9,6 +9,7 @@ import Home from './pages/Home/Home';
 import Todo from './projects/Todo/Todo';
 import ReactStorybook from './projects/ReactStorybook/ReactStorybook';
 import NotFound from './pages/404';
+import CaddyTalk from './projects/CaddyTalk/CaddyTalk';
 
 function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -109,6 +110,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/todo" element={<Todo />} />
+          <Route path="/rangefinder" element={<CaddyTalk />} />
           <Route path="/storybook" element={<ReactStorybook />} />
           {/* Handle 404 Not Found pages */}
           <Route path="*" element={<NotFound />} />

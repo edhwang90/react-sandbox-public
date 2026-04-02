@@ -13,6 +13,15 @@ const projectsJson: Project[] = [
     ],
     route: '/todo',
     color: '#0873FF'
+  },
+  {
+    title: 'Rangefinder API Testing',
+    tags: [
+      'Supabase',
+      'API testing'
+    ],
+    route: '/rangefinder',
+    color: '#47DA5D'
   }
 ]
 
