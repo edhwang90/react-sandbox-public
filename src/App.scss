@@ -193,6 +193,12 @@ $side-menu-width: 212px;
   height: auto;
 }
 
+.disclaimer {
+  font-size:.8rem;
+  color: #a1a1aa;
+  margin-left: 8px;
+}
+
 // media queries
 @media only screen and (max-width: 720px) {
   .nav-bar {
@@ -213,5 +219,10 @@ $side-menu-width: 212px;
   .nav-bar {
     display: flex;
     flex-direction: column;
+  }
+
+  .disclaimer {
+    display: block;
+    margin-top: 4px;
   }
 }

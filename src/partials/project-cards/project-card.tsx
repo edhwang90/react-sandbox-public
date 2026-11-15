@@ -4,18 +4,29 @@ import { ArrowRightIcon } from "@phosphor-icons/react";
 
 import './project-cards.scss';
 
-const ProjectCard = ({ title, tags, route, color } : { title: string, tags: string[], route: string, color: string }) => {
+const ProjectCard = ({ title, tags, isExternal, route, color } : { title: string, tags: string[], isExternal: boolean, route: string, color: string }) => {
   const dynamicStyles = {
     backgroundColor: color
   };
-
+  
   return (
     <React.Fragment>
       <div className="project-card">
         <div className="highlight-color" style={dynamicStyles}></div>
         <div className="row">
           <div className="col-10">
-            <a title={`to ${title}`} href={route}>{title}</a>
+            {
+              !isExternal ? (
+                <a title={`to ${title}`} href={route}>{title}</a>
+              )
+              : (
+                <a title={`to ${title}`} 
+                  rel="noopener noreferrer"
+                  target="_blank"
+                  href={route}>{title} <span className="disclaimer">(external link/new tab)</span></a>
+              )
+            }
+            
             <ul className="tags">
               {
                 tags.map((tag: string, index: number) => {

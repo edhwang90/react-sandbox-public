@@ -1,29 +1,7 @@
 import { useEffect } from "react";
 import useTabHandler from "../../hooks/tabHandler";
 import ProjectCards from "../project-cards/project-cards";
-import type { Project } from "../../types/types";
-
-const projectsJson: Project[] = [
-  {
-    title: 'Todo Application',
-    tags: [
-      'React & TypeScript',
-      'Dashboard',
-      'Figma AI + GitHub Copilot'
-    ],
-    route: '/todo',
-    color: '#0873FF'
-  },
-  {
-    title: 'Rangefinder API Testing',
-    tags: [
-      'Supabase',
-      'API testing'
-    ],
-    route: '/rangefinder',
-    color: '#47DA5D'
-  }
-]
+import projectsJson from "../../data/projects";
 
 const Projects = () => {
   const { 

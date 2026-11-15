@@ -7,9 +7,8 @@ import useMenuHandler from './hooks/useMenuHandler';
 
 import Home from './pages/Home/Home';
 import Todo from './projects/Todo/Todo';
-import ReactStorybook from './projects/ReactStorybook/ReactStorybook';
 import NotFound from './pages/404';
-import CaddyTalk from './projects/CaddyTalk/CaddyTalk';
+import projectsJson from './data/projects';
 
 function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -66,7 +65,26 @@ function App() {
         <div className="side-menu-main">
           <ul>
             <li><a className="side-menu-action bold" href="/" title="to Home" onClick={()=> showMenu(false)}>Home</a></li>
-            <li><a className="side-menu-action" href="/todo" title="to Todo App" onClick={()=> showMenu(false)}>Todo</a></li>
+            {
+              projectsJson.map((project, index) => {
+                const { title, route, isExternal } = project;
+                return (
+                  <li key={index}>
+                    <a
+                      className="side-menu-action"
+                      href={route}
+                      title={`to ${title}`}
+                      target={isExternal ? "_blank" : undefined}
+                      rel={isExternal ? "noopener noreferrer" : undefined}
+                      onClick={() => showMenu(false)}
+                    >
+                      {title} 
+                      {isExternal && <span className="disclaimer">(external link/new tab)</span>}
+                    </a>
+                  </li>
+                );
+              })
+            }
           </ul>
         </div>
     
@@ -110,8 +128,6 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/todo" element={<Todo />} />
-          <Route path="/rangefinder" element={<CaddyTalk />} />
-          <Route path="/storybook" element={<ReactStorybook />} />
           {/* Handle 404 Not Found pages */}
           <Route path="*" element={<NotFound />} />
         </Routes>

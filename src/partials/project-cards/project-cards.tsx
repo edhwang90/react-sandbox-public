@@ -11,10 +11,10 @@ const ProjectCards = ({ projects } : { projects: Project[] }) => {
       <div className="project-cards">
         {
           projects.map((project: Project, index: number) => {
-            const { title, tags, route, color } = project;
+            const { title, tags, isExternal, route, color } = project;
 
             return (
-              <ProjectCard title={title} tags={tags} route={route} color={color} key={index} />
+              <ProjectCard title={title} isExternal={isExternal} tags={tags} route={route} color={color} key={index} />
             )
           })
         }

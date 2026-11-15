@@ -1,6 +1,7 @@
 export interface Project {
   title: string,
   tags: string[],
+  isExternal: boolean,
   route: string,
   color: string
 }
