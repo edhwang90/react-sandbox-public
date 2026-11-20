@@ -1,50 +1,26 @@
-import React from 'react';
-
+import type { CSSProperties } from 'react';
 import { ArrowRightIcon } from "@phosphor-icons/react";
 
+import type { Project } from '../../types/types';
 import './project-cards.scss';
 
-const ProjectCard = ({ title, tags, isExternal, route, color } : { title: string, tags: string[], isExternal: boolean, route: string, color: string }) => {
-  const dynamicStyles = {
-    backgroundColor: color
-  };
-  
+const ProjectCard = ({ title, tags, isExternal, route, color }: Project) => {
+  const externalProps = isExternal ? { target: '_blank', rel: 'noopener noreferrer' } : {};
+
   return (
-    <React.Fragment>
-      <div className="project-card">
-        <div className="highlight-color" style={dynamicStyles}></div>
-        <div className="row">
-          <div className="col-10">
-            {
-              !isExternal ? (
-                <a title={`to ${title}`} href={route}>{title}</a>
-              )
-              : (
-                <a title={`to ${title}`} 
-                  rel="noopener noreferrer"
-                  target="_blank"
-                  href={route}>{title} <span className="disclaimer">(external link/new tab)</span></a>
-              )
-            }
-            
-            <ul className="tags">
-              {
-                tags.map((tag: string, index: number) => {
-                  return (
-                    <li className="tag" key={index}>{tag}</li>
-                  )
-                })
-              }
-            </ul>
-          </div>
-          <div className="col-2">
-            <a className="to-project-btn" title={`to ${title}`} href={route}>
-              <ArrowRightIcon className="card-arrow" />
-            </a>
-          </div>
-        </div>  
-      </div>
-    </React.Fragment>
+    <li className="project-card" style={{ '--accent': color } as CSSProperties}>
+      {/* The title link is stretched over the whole row, so the arrow is decorative */}
+      <a className="project-card-link" href={route} {...externalProps}>
+        {title}
+        {isExternal && <span className="disclaimer">(external link/new tab)</span>}
+      </a>
+
+      <ul className="project-card-tags">
+        {tags.map((tag) => <li className="project-card-tag" key={tag}>{tag}</li>)}
+      </ul>
+
+      <ArrowRightIcon className="project-card-arrow" aria-hidden="true" />
+    </li>
   )
 }
 

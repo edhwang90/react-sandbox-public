@@ -1,19 +1,13 @@
 import Projects from "../partials/projects/projects";
 
-const NotFound = () => {
+const NotFound = () => (
+  <div className="home-container">
+    <header className="home-header">
+      <h1 className="main-line">404 - Page not found</h1>
+    </header>
 
-  return (
-    <div className="home-container">
-      <div className="home-header">
-        <span className="main-line">
-          404 - Page not found
-        </span>  
-        
-      </div>
-
-      <Projects />
-    </div>
-  )
-}
+    <Projects />
+  </div>
+)
 
 export default NotFound;

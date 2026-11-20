@@ -1,87 +1,110 @@
 @use '../../imports';
 
+$muted: #71717a; // #bababa failed contrast on white
+
+.project-cards {
+  border-top: 1px solid imports.$light-grey;
+}
+
 .project-card {
-  border: 4px solid imports.$font-color;
-  border-radius: 16px;
-
-  display: inline-block;
-  padding-left: 80px;
-  padding-right: 36px;
-  padding-top: 24px;
-  padding-bottom: 24px;
-
-  text-align: left;
-  max-width: 972px;
-  width: 100%;
-
-  overflow: hidden;
   position: relative;
-  
-  margin-bottom: 24px;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: center;
+  column-gap: 24px;
+  padding: 32px 0 32px 28px;
+  border-bottom: 1px solid imports.$light-grey;
 
-  .highlight-color {
-    background-color: #e4e4e7;
+  // accent dot, colour set inline per project
+  &::before {
+    content: "";
     position: absolute;
     left: 0;
-    top: 0;
-    width: 24px;
-    height: 100%;
+    top: 50px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--accent, imports.$light-grey);
+  }
+}
+
+.project-card-link {
+  font-size: 2rem;
+  font-weight: 600;
+  line-height: 1.1;
+  letter-spacing: -.02em;
+  text-decoration: none;
+
+  // makes the whole row clickable
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
   }
 
-  a {
-    font-size: 2.25rem;
-    font-weight: 500;
-    line-height: 1;
-    text-decoration: none;
-    display: inline-block;
-    margin-bottom: 16px;
+  .project-card:hover & {
+    text-decoration: underline 2px;
+    text-underline-offset: 6px;
   }
 
-  .tag {
-    background-color: #FDFF9D;
-    border: none;
-    border-radius: 8px;
-    display: inline-block;
-    margin-right: 8px;
-    margin-top: 8px;
-    padding: 4px 32px;
-    font-size: 1rem;
-    text-transform: none;
-
-    &:last-of-type {
-      margin-right: 0px;
-    }
+  .disclaimer {
+    display: block;
+    margin: 6px 0 0;
+    letter-spacing: 0;
+    font-weight: 400;
   }
+}
 
-  .to-project-btn {
-    float: right;
-    margin-bottom: 0px;
+.project-card-tags {
+  grid-column: 1;
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 12px;
+}
+
+.project-card-tag {
+  font: 400 .875rem/1.4 ui-monospace, Menlo, monospace;
+  color: $muted;
+
+  & + &::before {
+    content: "·";
+    margin: 0 .6em;
+    color: $muted;
   }
+}
 
-  .card-arrow {
-    width: 54px;
-    height: auto;
+.project-card-arrow {
+  grid-column: 2;
+  grid-row: 1 / span 2;
+  width: 32px;
+  height: auto;
+  transition: transform .2s;
+
+  .project-card:hover & {
+    transform: translateX(6px);
   }
+}
 
-  .row {
-    display: flex;
-    align-items: center;
+@media (prefers-reduced-motion: reduce) {
+  .project-card-arrow {
+    transition: none;
   }
 }
 
 @media only screen and (max-width: 720px) {
   .project-card {
-    padding-left: 32px;
-    padding-right: 8px;
-    padding-top: 8px;
-    padding-bottom: 8px;
+    padding: 24px 0 24px 22px;
 
-    .row {
-      display: inline-block;
+    &::before {
+      top: 38px;
     }
+  }
 
-    a {
-      font-size: 2rem;
-    }
+  .project-card-link {
+    font-size: 1.5rem;
+  }
+
+  .project-card-arrow {
+    width: 24px;
   }
 }
